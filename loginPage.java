@@ -18,7 +18,7 @@ import java.awt.Dimension;
  */
 public class loginPage implements ActionListener
 {
-    JFrame frame = new JFrame();
+    JFrame frame = new JFrame("Chattr");
     JButton loginButton = new JButton("login");
     JButton resetButton = new JButton("Reset");
     JButton createButton = new JButton("sign up");

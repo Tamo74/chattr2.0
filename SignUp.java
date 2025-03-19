@@ -18,7 +18,7 @@ public class SignUp implements ActionListener
     JButton createButton = new JButton("Sign Up");
     JTextField newUseridField = new JTextField();
     JPasswordField newPasswordField = new JPasswordField();
-    JLabel newUseridLabel = new JLabel("new a username");
+    JLabel newUseridLabel = new JLabel("new username");
     JLabel newPasswordLabel = new JLabel("enter a password");
     JLabel messageLabel= new JLabel();
     
