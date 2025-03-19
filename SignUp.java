@@ -18,8 +18,8 @@ public class SignUp implements ActionListener
     JButton createButton = new JButton("Sign Up");
     JTextField newUseridField = new JTextField();
     JPasswordField newPasswordField = new JPasswordField();
-    JLabel newUseridLabel = new JLabel("new a username");
-    JLabel newPasswordLabel = new JLabel("enter a password");
+    JLabel newUseridLabel = new JLabel("New username");
+    JLabel newPasswordLabel = new JLabel("Enter a password");
     JLabel messageLabel= new JLabel();
     
     HashMap<String, String> loginInfo;
@@ -71,14 +71,14 @@ public class SignUp implements ActionListener
 
             {
                 messageLabel.setForeground(Color.red);
-                messageLabel.setText("username already exists ");
+                messageLabel.setText("Username already exists ");
             }
         
         else
         {
             loginInfo.put(newUserid, newPassword);
             messageLabel.setForeground(Color.green);
-            messageLabel.setText("account created");
+            messageLabel.setText("Account created");
             frame.dispose();
             home h = new home (newUserid);
         }
