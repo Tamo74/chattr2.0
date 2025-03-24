@@ -18,8 +18,8 @@ public class SignUp implements ActionListener
     JButton createButton = new JButton("Sign Up");
     JTextField newUseridField = new JTextField();
     JPasswordField newPasswordField = new JPasswordField();
-    JLabel newUseridLabel = new JLabel("New username");
-    JLabel newPasswordLabel = new JLabel("Enter a password");
+    JLabel newUseridLabel = new JLabel("new a username");
+    JLabel newPasswordLabel = new JLabel("enter a password");
     JLabel messageLabel= new JLabel();
     
     HashMap<String, String> loginInfo;
