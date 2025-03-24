@@ -5,10 +5,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 /**
- * Write a description of class welcome here.
+ * Home page class to display home feed.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author group 6
+ * @version 1.0
  */
 public class home
 {
@@ -37,7 +37,7 @@ public class home
         // Adding resized icons to the bottom panel
         for (int i = 0; i < 4; i++) {
             JLabel iconLabel = new JLabel();
-            ImageIcon icon = new ImageIcon("C:\\Users\\Katherine Curtis\\OneDrive - University of Dundee\\Computing\\1st Year\\Intro to DS & A\\Final Project\\chattr2.0\\icon" + (i + 1) + ".png"); // Replace with actual icon paths
+            ImageIcon icon = new ImageIcon("icon" + (i + 1) + ".png"); // Replace with actual icon paths
             Image img = icon.getImage();
             Image resizedImg = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Resize to 40x40 pixels
             iconLabel.setIcon(new ImageIcon(resizedImg));
