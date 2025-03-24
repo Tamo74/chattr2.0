@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 /**
@@ -39,6 +41,7 @@ public class home
             Image img = icon.getImage();
             Image resizedImg = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Resize to 40x40 pixels
             iconLabel.setIcon(new ImageIcon(resizedImg));
+            iconLabel.setBorder(new EmptyBorder(0, 25, 0, 0)); // Add 10px padding to the left
             bottomPanel.add(iconLabel);
         }
         
