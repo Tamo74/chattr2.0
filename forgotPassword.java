@@ -71,6 +71,14 @@ public class forgotPassword implements ActionListener
                 messageLabel.setText("User is not found");
             
             }    
+             
+             if(!isValidPassword(passcode))
+            {
+                messageLabel.setForeground(Color.red);
+                messageLabel.setText("must be 8+ charcaters, upperscase, and a number.");
+                return;
+            }
+            
         
         
                 else if(loginInfo.containsKey(userID))
@@ -85,5 +93,13 @@ public class forgotPassword implements ActionListener
                     messageLabel.setForeground(Color.red);
                     messageLabel.setText("user not found");
                 }
+    }
+    
+    private boolean isValidPassword(String passcode)
+    {
+        return passcode.length() >=8 &&
+        passcode.matches(".*[A-Z].*") &&
+        passcode.matches(".*[a-z].*") && 
+        passcode.matches(".*\\d.*");
     }
 }
