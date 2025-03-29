@@ -13,7 +13,7 @@ import java.awt.Color;
  * Write a description of class fogotPassword here.
  *
  * @author (your name)
- * @version (a version number or a date)
+ * @version (a version number or a date) 
  */
 public class forgotPassword implements ActionListener
 {
