@@ -2,7 +2,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.HashMap;
 import java.awt.Font;
-import java.awt.Color; 
+import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class SignUp implements ActionListener
     
     JLabel firstNameLabel = new JLabel("First name");
     JLabel surnameLabel = new JLabel("Surname");
-    JLabel ageLabel = new JLabel("age:");
+    JLabel ageLabel = new JLabel("Date of birth:");
     JLabel newUseridLabel = new JLabel("enter a username");
     JLabel newPasswordLabel = new JLabel("enter a password");
     JLabel verifyPasswordLabel = new JLabel("verify password");
@@ -108,21 +108,30 @@ public class SignUp implements ActionListener
                     messageLabel.setText("Fields cannot be empty!");
                     return;
                 }
-             int age; 
-             try
-             {
-                 age =Integer.parseInt(ageText);
-                 if (age <16)
-                 {
-                        messageLabel.setForeground(Color.red);
-                        messageLabel.setText("must 16 or older");
-                        return;
+            int age; 
+            try
+            {
+                age =Integer.parseInt(ageText);
+                if (age <16)
+                {
+                    messageLabel.setForeground(Color.red);
+                    messageLabel.setText("must 16 or older");
+                    return;
                 }
             }
+            
             catch (NumberFormatException ex)
             {
                 messageLabel.setForeground(Color.red);
                 messageLabel.setText("invalid age!");
+                return;
+            }
+        
+            
+            if(!isValidPassword(newPassword))
+            {
+                messageLabel.setForeground(Color.red);
+                messageLabel.setText("must be 8+ charcaters, upperscase, and a number.");
                 return;
             }
             
@@ -136,6 +145,14 @@ public class SignUp implements ActionListener
             {
                 messageLabel.setForeground(Color.green);
                 messageLabel.setText("Account created!");
+                try
+                {
+                    saveUser(newUserid, newPassword);
+                }
+                catch(IOException ex)
+                {
+                    ex.printStackTrace();
+                }
                 frame.dispose();
                 new home(newUserid);
             } 
@@ -145,9 +162,15 @@ public class SignUp implements ActionListener
                 messageLabel.setText("Username already exists!");
             }
         }
-        }
+    }
     
-    
+    private boolean isValidPassword(String password)
+    {
+        return password.length() >=8 &&
+        password.matches(".*[A-Z].*") &&
+        password.matches(".*[a-z].*") && 
+        password.matches(".*\\d.*");
+    }
     private void saveUser(String username, String Password) 
     throws java.io.IOException
     {
