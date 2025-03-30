@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
@@ -42,6 +43,25 @@ public class home
             Image resizedImg = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Resize to 40x40 pixels
             iconLabel.setIcon(new ImageIcon(resizedImg));
             iconLabel.setBorder(new EmptyBorder(0, 25, 0, 0)); // Add 10px padding to the left
+
+            // Add mouse listener to handle click events
+            final int index = i + 1;
+            iconLabel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (index == 2) {
+                        runClass("Search");
+                    }
+                    else if (index == 3) 
+                    {
+                        runClass("post");
+                    } else if (index == 4) 
+                    {
+                        runClass("Friends");
+                    }
+                }
+            });
+
             bottomPanel.add(iconLabel);
         }
         
@@ -52,6 +72,16 @@ public class home
         frame.setLayout(null);
         frame.setVisible(true);
     }
-   
+
+    // Method to run the specified class
+    private void runClass(String className) {
+    try {
+        Class<?> clazz = Class.forName(className);
+        clazz.getDeclaredMethod("main", String[].class).invoke(null, (Object) new String[]{});
+    } catch (Exception e) {
+        e.printStackTrace();
+        }
+    }
+
 }
 
