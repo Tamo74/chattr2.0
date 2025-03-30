@@ -104,7 +104,7 @@ public class postManage implements ActionListener
                 frame.add(postLabel);
                 yPosition += 90;
             }
-            frame.revalidate();
+            frame.revalidate(); 
             frame.repaint();
     }
     
