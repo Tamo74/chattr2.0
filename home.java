@@ -1,3 +1,4 @@
+/** 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -10,7 +11,7 @@ import javax.swing.border.LineBorder;
  *
  * @author group 6
  * @version 1.0
- */
+ 
 public class home
 {
    JFrame frame = new JFrame();
@@ -83,5 +84,90 @@ public class home
         }
     }
 
+}
+*/
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
+/**
+ * Home page class to display home feed.
+ *
+ * @author group 6
+ * @version 1.0
+ */
+public class home {
+    JFrame frame = new JFrame();
+    JLabel welcomeLabel = new JLabel("chattr");
+    JPanel topPanel = new JPanel();
+    JPanel bottomPanel = new JPanel();
+    
+    home(String userID) {
+        welcomeLabel.setBounds(10, 10, 200, 35);
+        welcomeLabel.setFont(new Font(null, Font.PLAIN, 25));
+        welcomeLabel.setText("Hello, " + userID);
+        
+        topPanel.setBounds(1, 1, 400, 50);
+        topPanel.setBorder(new LineBorder(Color.BLACK, 2));
+        topPanel.setLayout(null);
+        topPanel.add(welcomeLabel);
+
+        bottomPanel.setBounds(1, 320, 400, 50);
+        bottomPanel.setBorder(new LineBorder(Color.BLACK, 2));
+        bottomPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns, 10px horizontal gap
+        
+        // Adding icon buttons to the bottom panel
+        for (int i = 0; i < 4; i++) {
+            JButton iconButton = new JButton();
+            ImageIcon icon = new ImageIcon("icon" + (i + 1) + ".png"); // Replace with actual icon paths
+            Image img = icon.getImage();
+            Image resizedImg = img.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Resize to 40x40 pixels
+            iconButton.setIcon(new ImageIcon(resizedImg));
+            iconButton.setBorder(new EmptyBorder(0, 10, 0, 10)); // Add padding
+            iconButton.setContentAreaFilled(false); // Makes the button background transparent
+            iconButton.setBorderPainted(false); // Removes button border
+            
+            // Adding action listeners for each button
+            final int buttonIndex = i;
+            iconButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    handleButtonClick(buttonIndex);
+                }
+            });
+
+            bottomPanel.add(iconButton);
+        }
+        
+        frame.add(topPanel);
+        frame.add(bottomPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420, 420);
+        frame.setLayout(null);
+        frame.setVisible(true);
+    }
+
+    // Method to handle button clicks
+    private void handleButtonClick(int buttonIndex) {
+        switch (buttonIndex) {
+            case 0:
+                System.out.println("Home button clicked");
+                break;
+            case 1:
+                System.out.println("Friends button clicked");
+                break;
+            case 2:
+                System.out.println("Messages button clicked");
+                break;
+            case 3:
+                System.out.println("Profile button clicked");
+                break;
+            default:
+                System.out.println("Unknown button clicked");
+        }
+    }
 }
 
