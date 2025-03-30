@@ -100,12 +100,13 @@ import javax.swing.border.LineBorder;
  * @author group 6
  * @version 1.0
  */
-public class home {
+public class home implements ActionListener{
     JFrame frame = new JFrame();
     JLabel welcomeLabel = new JLabel("chattr");
     JPanel topPanel = new JPanel();
     JPanel bottomPanel = new JPanel();
-    
+    JButton profileButton = new JButton("profile");
+
     home(String userID) {
         welcomeLabel.setBounds(10, 10, 200, 35);
         welcomeLabel.setFont(new Font(null, Font.PLAIN, 25));
@@ -119,6 +120,11 @@ public class home {
         bottomPanel.setBounds(1, 320, 400, 50);
         bottomPanel.setBorder(new LineBorder(Color.BLACK, 2));
         bottomPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns, 10px horizontal gap
+
+        profileButton.setBounds(125, 550, 200, 25);
+        profileButton.setFocusable(false);
+        profileButton.addActionListener(this);
+        bottomPanel.add(profileButton);
         
         // Adding icon buttons to the bottom panel
         for (int i = 0; i < 4; i++) {
@@ -144,6 +150,7 @@ public class home {
         
         frame.add(topPanel);
         frame.add(bottomPanel);
+        frame.add(profileButton);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420, 420);
         frame.setLayout(null);
@@ -171,3 +178,11 @@ public class home {
     }
 }
 
+
+@Override
+public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == profileButton) {
+        new profile(userID, id);
+    }
+}
+}
