@@ -105,7 +105,7 @@ public class home implements ActionListener{
     JLabel welcomeLabel = new JLabel("chattr");
     JPanel topPanel = new JPanel();
     JPanel bottomPanel = new JPanel();
-    JButton profileButton = new JButton("profile");
+   
 
     home(String userID) {
         welcomeLabel.setBounds(10, 10, 200, 35);
@@ -121,10 +121,7 @@ public class home implements ActionListener{
         bottomPanel.setBorder(new LineBorder(Color.BLACK, 2));
         bottomPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns, 10px horizontal gap
 
-        profileButton.setBounds(125, 550, 200, 25);
-        profileButton.setFocusable(false);
-        profileButton.addActionListener(this);
-        bottomPanel.add(profileButton);
+        
         
         // Adding icon buttons to the bottom panel
         for (int i = 0; i < 4; i++) {
@@ -150,12 +147,13 @@ public class home implements ActionListener{
         
         frame.add(topPanel);
         frame.add(bottomPanel);
-        frame.add(profileButton);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420, 420);
         frame.setLayout(null);
         frame.setVisible(true);
     }
+    public void actionPerformed(ActionEvent e)
+    {}
 
     // Method to handle button clicks
     private void handleButtonClick(int buttonIndex) {
@@ -179,10 +177,4 @@ public class home implements ActionListener{
 }
 
 
-@Override
-public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == profileButton) {
-        new profile(userID, id);
-    }
-}
-}
+

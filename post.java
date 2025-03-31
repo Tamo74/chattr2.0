@@ -1,60 +1,79 @@
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.ArrayList;
 
+public class Post {
+    private String username;
+    private String content;
+    private Date timestamp;
+    private Set<User> likedUsers;
+    private List<Comment> comments;
 
-/**
- * Write a description of class profile here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class post
-{
-   private String username;
-   private String content;
-   private Date timestamp;
-
-   
-   public post(String username, String content)
-   {
+    // Constructor for a post with username and content
+    public Post(String username, String content) {
         this.username = username;
         this.content = content;
         this.timestamp = new Date();
+        this.likedUsers = new HashSet<>();
+        this.comments = new ArrayList<>();
     }
-    
-       public post(String username, String content, Date timestamp) {
+
+    // Constructor for a post with username, content, and timestamp
+    public Post(String username, String content, Date timestamp) {
         this.username = username;
         this.content = content;
         this.timestamp = timestamp;
+        this.likedUsers = new HashSet<>();
+        this.comments = new ArrayList<>();
     }
 
-   public String getUsername()
-   {
+    // Getters
+    public String getUsername() {
         return username;
     }
-    
-    public String getContent()
-    {
+
+    public String getContent() {
         return content;
     }
-    
-    public Date getTimestamp()
-    {
+
+    public Date getTimestamp() {
         return timestamp;
     }
-   
-    public String toFileString()
-    {
-        return username  + "|" + content.replace("\n", "\\n") + "|" + timestamp.getTime();
-        
+
+    // Method to add a like to the post
+    public void likePost(User user) {
+        likedUsers.add(user);
     }
-    
-    public static post fromFileString(String line)
-    {
+
+    // Method to get the number of likes
+    public int getLikeCount() {
+        return likedUsers.size();
+    }
+
+    // Method to add a comment
+    public void addComment(User user, String message) {
+        Comment comment = new Comment(user, message);
+        comments.add(comment);
+    }
+
+    // Method to get the comments
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    // Method to return a string representation of the post for saving to a file
+    public String toFileString() {
+        return username + "|" + content.replace("\n", "\\n") + "|" + timestamp.getTime();
+    }
+
+    // Static method to create a post from a file string
+    public static Post fromFileString(String line) {
         String[] parts = line.split("\\|");
-       if (parts.length < 3) {
+        if (parts.length < 3) {
             throw new IllegalArgumentException("Invalid post data format: " + line);
         }
-
-        return new post(parts[0], parts[1].replace("\\n", "\n"), new Date(Long.parseLong(parts[2])));
+        return new Post(parts[0], parts[1].replace("\\n", "\n"), new Date(Long.parseLong(parts[2])));
     }
 }

@@ -30,7 +30,7 @@ public class SignUp implements ActionListener
     
     JLabel firstNameLabel = new JLabel("First name");
     JLabel surnameLabel = new JLabel("Surname");
-    JLabel ageLabel = new JLabel("Date of birth:");
+    JLabel ageLabel = new JLabel("Age:");
     JLabel newUseridLabel = new JLabel("enter a username");
     JLabel newPasswordLabel = new JLabel("enter a password");
     JLabel verifyPasswordLabel = new JLabel("verify password");
