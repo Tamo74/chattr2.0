@@ -18,6 +18,7 @@ public class Profile extends JFrame {
     private JButton profileButton = new JButton("Profile");
     private JButton searchButton = new JButton("Search");
     private JButton addPostButton = new JButton("Add Post");
+    private JButton homeButton = new JButton("Home");
 
     public Profile(String username, ID id, String currentUser) {
         this.id = id;
@@ -133,7 +134,7 @@ public class Profile extends JFrame {
     }
 
     private void setupNavbar(String currentUser) {
-        navbarPanel.setLayout(new GridLayout(1, 3, 10, 0)); // 1 row, 3 columns
+        navbarPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns
         navbarPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         profileButton.setFocusable(false);
@@ -147,6 +148,10 @@ public class Profile extends JFrame {
         addPostButton.setFocusable(false);
         addPostButton.addActionListener(e -> new postManage(currentUser)); // Assuming postManage is defined elsewhere
         navbarPanel.add(addPostButton);
+
+        homeButton.setFocusable(false); // Home button setup
+        homeButton.addActionListener(e -> new Home(currentUser, id));
+        navbarPanel.add(homeButton);
 
         add(navbarPanel, BorderLayout.SOUTH); // Adding the navbar at the bottom
     }
