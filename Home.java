@@ -33,7 +33,7 @@ public class Home implements ActionListener {
 
         navbarPanel.setBounds(1, 320, 400, 50);
         navbarPanel.setBorder(new LineBorder(Color.BLACK, 2));
-        navbarPanel.setLayout(new GridLayout(1, 3, 10, 0)); // 1 row, 3 columns, 10px horizontal gap
+        navbarPanel.setLayout(new GridLayout(1, 3, 10, 0)); 
 
         profileButton.setFocusable(false);
         profileButton.addActionListener(this);
@@ -47,7 +47,7 @@ public class Home implements ActionListener {
         addPostButton.addActionListener(this);
         navbarPanel.add(addPostButton);
 
-        homeButton.setFocusable(false); // Home button setup
+        homeButton.setFocusable(false); 
         homeButton.addActionListener(this);
         navbarPanel.add(homeButton);
 
@@ -65,13 +65,13 @@ public class Home implements ActionListener {
         if (e.getSource() == profileButton) {
             new Profile(userID, id, userID);
         } else if (e.getSource() == searchButton) {
-            // Open UserSearchApp using JFrame
-            new UserSearchApp(userID); // Now using Swing-based UserSearchApp
+            
+            new UserSearchApp(userID); 
         } else if (e.getSource() == addPostButton) {
             new postManage(userID);
         }else if (e.getSource() == homeButton) {
-            // Navigate to Home
-            new Home(userID, null); // Assuming you have a Home class
+            
+            new Home(userID, null); 
         }
     }
 

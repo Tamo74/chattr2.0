@@ -35,17 +35,17 @@ public class UserSearchApp extends JFrame implements ActionListener {
         JScrollPane scrollPane = new JScrollPane(userList);
         JPanel navbarPanel = new JPanel();
 
-        // Load only usernames from file
+       
         loadUsersFromFile();
 
-        // Panel for search results with follow buttons
+        
         JPanel resultPanel = new JPanel();
         resultPanel.setLayout(new BorderLayout());
         resultPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // Navbar Panel for navigation buttons
+        
         navbarPanel.setBorder(new LineBorder(Color.BLACK, 2));
-        navbarPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns, 10px horizontal gap
+        navbarPanel.setLayout(new GridLayout(1, 4, 10, 0)); 
 
         profileButton.setFocusable(false);
         profileButton.addActionListener(this);
@@ -59,16 +59,16 @@ public class UserSearchApp extends JFrame implements ActionListener {
         addPostButton.addActionListener(this);
         navbarPanel.add(addPostButton);
 
-        homeButton.setFocusable(false); // Home button setup
+        homeButton.setFocusable(false); 
         homeButton.addActionListener(this);
         navbarPanel.add(homeButton);
 
-        // Add components
+        
         add(searchField, BorderLayout.NORTH);
         add(resultPanel, BorderLayout.CENTER);
         add(navbarPanel, BorderLayout.SOUTH);
 
-        // Dynamic search filtering
+        
         searchField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {

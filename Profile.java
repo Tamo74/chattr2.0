@@ -134,7 +134,7 @@ public class Profile extends JFrame {
     }
 
     private void setupNavbar(String currentUser) {
-        navbarPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns
+        navbarPanel.setLayout(new GridLayout(1, 4, 10, 0)); 
         navbarPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
         profileButton.setFocusable(false);
@@ -142,18 +142,18 @@ public class Profile extends JFrame {
         navbarPanel.add(profileButton);
 
         searchButton.setFocusable(false);
-        searchButton.addActionListener(e -> new UserSearchApp(currentUser)); // Assuming you are using the Swing version of UserSearchApp
+        searchButton.addActionListener(e -> new UserSearchApp(currentUser)); 
         navbarPanel.add(searchButton);
 
         addPostButton.setFocusable(false);
-        addPostButton.addActionListener(e -> new postManage(currentUser)); // Assuming postManage is defined elsewhere
+        addPostButton.addActionListener(e -> new postManage(currentUser)); 
         navbarPanel.add(addPostButton);
 
-        homeButton.setFocusable(false); // Home button setup
+        homeButton.setFocusable(false); 
         homeButton.addActionListener(e -> new Home(currentUser, id));
         navbarPanel.add(homeButton);
 
-        add(navbarPanel, BorderLayout.SOUTH); // Adding the navbar at the bottom
+        add(navbarPanel, BorderLayout.SOUTH); 
     }
 
     public static void main(String[] args) {

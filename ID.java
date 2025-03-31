@@ -61,7 +61,7 @@ public class ID {
 
     public boolean addUser(String username, String password) {
         if (allUsers.contains(username)) {
-            return false; // Username already exists
+            return false; 
         }
 
         allUsers.add(username);
@@ -122,7 +122,7 @@ public class ID {
     }
 
     public Object getAllPosts() {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'getAllPosts'");
     }
 }

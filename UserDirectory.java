@@ -12,13 +12,13 @@ public class UserDirectory   {
         this.users = new ArrayList<>();
     }
 
-    // Method to load users from a file
+    
     public void loadUsersFromFile(String fileName) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (!line.trim().isEmpty()) {
-                    users.add(new User(line.trim()));  // Assuming each line in the file contains a username
+                    users.add(new User(line.trim()));  
                 }
             }
         } catch (IOException e) {
@@ -26,7 +26,7 @@ public class UserDirectory   {
         }
     }
 
-    // Search for users by username (case-insensitive)
+    
     public List<User> searchUsers(String query) {
         List<User> result = new ArrayList<>();
         for (User user : users) {

@@ -25,7 +25,7 @@ public class postManage implements ActionListener {
     public postManage(String username) {
         this.username = username;
 
-        // Text Area for entering the post
+       
         postTextArea.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         postTextArea.setEditable(true);
         
@@ -35,16 +35,16 @@ public class postManage implements ActionListener {
         postButton.setFocusable(false);
         postButton.addActionListener(this);
 
-        // Top Panel for post creation
+       
         topPanel.setLayout(new BorderLayout());
         topPanel.add(scrollPane, BorderLayout.CENTER);
         topPanel.add(postButton, BorderLayout.SOUTH);
 
-        // Message Label for post status
+       
         messageLabel.setForeground(Color.GRAY);
         topPanel.add(messageLabel, BorderLayout.NORTH);
 
-        // Navbar Panel for navigation buttons
+        
         navbarPanel.setBorder(new LineBorder(Color.BLACK, 2));
         navbarPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns, 10px horizontal gap
 
@@ -64,7 +64,7 @@ public class postManage implements ActionListener {
         homeButton.addActionListener(this);
         navbarPanel.add(homeButton);
 
-        // Frame setup
+        
         frame.setLayout(new BorderLayout());
         frame.add(topPanel, BorderLayout.CENTER);
         frame.add(navbarPanel, BorderLayout.SOUTH);
@@ -73,7 +73,7 @@ public class postManage implements ActionListener {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Load any saved posts
+        
         loadPosts();
     }
 
@@ -96,31 +96,27 @@ public class postManage implements ActionListener {
 
             displayPosts();
         } else if (e.getSource() == profileButton) {
-            // Navigate to Profile
-            new Profile(username, null, username); // Make sure to pass the correct parameters
-        } else if (e.getSource() == searchButton) {
-            // Navigate to Search
-            new UserSearchApp(null); // If you're using a Swing approach, use Swing to navigate
+           
+            new Profile(username, null, username);
+            new UserSearchApp(null); 
         } else if (e.getSource() == addPostButton) {
-            // Stay on Add Post
-            // Optionally, you can open another add post screen if needed.
+           
         } else if (e.getSource() == homeButton) {
-            // Navigate to Home
-            new Home(username, null); // Assuming you have a Home class
+        
+            new Home(username, null);
         }
     }
 
     private void displayPosts() {
         int yPosition = 250;
 
-        // Remove previous post components
+        
         for (Component c : frame.getContentPane().getComponents()) {
             if (c instanceof JTextArea && c != postTextArea) {
                 frame.remove(c);
             }
         }
 
-        // Display each post in a JTextArea
         for (Post p : posts) {
             JTextArea postLabel = new JTextArea(p.getUsername() + ":\n" + p.getContent());
             postLabel.setBounds(50, yPosition, 300, 80);
