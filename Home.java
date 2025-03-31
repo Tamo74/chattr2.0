@@ -16,6 +16,7 @@ public class Home implements ActionListener {
     JButton profileButton = new JButton("Profile");
     JButton searchButton = new JButton("Search");
     JButton addPostButton = new JButton("Add Post");
+    JButton homeButton = new JButton("Home");
 
     public Home(String username, ID id) {
         this.userID = username;
@@ -46,6 +47,10 @@ public class Home implements ActionListener {
         addPostButton.addActionListener(this);
         navbarPanel.add(addPostButton);
 
+        homeButton.setFocusable(false); // Home button setup
+        homeButton.addActionListener(this);
+        navbarPanel.add(homeButton);
+
         frame.add(topPanel, BorderLayout.NORTH);
         frame.add(navbarPanel, BorderLayout.SOUTH);
 
@@ -64,6 +69,9 @@ public class Home implements ActionListener {
             new UserSearchApp(userID); // Now using Swing-based UserSearchApp
         } else if (e.getSource() == addPostButton) {
             new postManage(userID);
+        }else if (e.getSource() == homeButton) {
+            // Navigate to Home
+            new Home(userID, null); // Assuming you have a Home class
         }
     }
 
