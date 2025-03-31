@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,13 +9,18 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserSearchApp extends JFrame {
+public class UserSearchApp extends JFrame implements ActionListener {
     private List<String> allUsers = new ArrayList<>();
     private DefaultListModel<String> listModel;
     private JList<String> userList;
     private String currentUser;
     private ID id;
     
+    private JButton profileButton = new JButton("Profile");
+    private JButton searchButton = new JButton("Search");
+    private JButton addPostButton = new JButton("Add Post");
+    private JButton homeButton = new JButton("Home");
+
     public UserSearchApp(String currentUser) {
         this.currentUser = currentUser;
         
@@ -27,6 +33,7 @@ public class UserSearchApp extends JFrame {
         listModel = new DefaultListModel<>();
         userList = new JList<>(listModel);
         JScrollPane scrollPane = new JScrollPane(userList);
+        JPanel navbarPanel = new JPanel();
 
         // Load only usernames from file
         loadUsersFromFile();
@@ -36,9 +43,30 @@ public class UserSearchApp extends JFrame {
         resultPanel.setLayout(new BorderLayout());
         resultPanel.add(scrollPane, BorderLayout.CENTER);
 
+        // Navbar Panel for navigation buttons
+        navbarPanel.setBorder(new LineBorder(Color.BLACK, 2));
+        navbarPanel.setLayout(new GridLayout(1, 4, 10, 0)); // 1 row, 4 columns, 10px horizontal gap
+
+        profileButton.setFocusable(false);
+        profileButton.addActionListener(this);
+        navbarPanel.add(profileButton);
+
+        searchButton.setFocusable(false);
+        searchButton.addActionListener(this);
+        navbarPanel.add(searchButton);
+
+        addPostButton.setFocusable(false);
+        addPostButton.addActionListener(this);
+        navbarPanel.add(addPostButton);
+
+        homeButton.setFocusable(false); // Home button setup
+        homeButton.addActionListener(this);
+        navbarPanel.add(homeButton);
+
         // Add components
         add(searchField, BorderLayout.NORTH);
         add(resultPanel, BorderLayout.CENTER);
+        add(navbarPanel, BorderLayout.SOUTH);
 
         // Dynamic search filtering
         searchField.addKeyListener(new KeyAdapter() {
@@ -115,5 +143,18 @@ public class UserSearchApp extends JFrame {
         followFrame.add(followButton);
         followFrame.add(unfollowButton);
         followFrame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == profileButton) {
+            new Profile(currentUser, id, currentUser);
+        } else if (e.getSource() == searchButton) {
+            new UserSearchApp(currentUser);
+        } else if (e.getSource() == addPostButton) {
+            new postManage(currentUser);
+        } else if (e.getSource() == homeButton) {
+            new Home(currentUser, id);
+        }
     }
 }
