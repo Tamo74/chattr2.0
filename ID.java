@@ -120,4 +120,9 @@ public class ID {
     protected HashMap<String, String> getLoginInfo() {
         return loginInfo;
     }
+
+    public Object getAllPosts() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllPosts'");
+    }
 }
