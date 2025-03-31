@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=UserDirectory
+comment1.params=
+comment1.target=UserDirectory()
+comment2.params=fileName
+comment2.target=void\ loadUsersFromFile(java.lang.String)
+comment3.params=query
+comment3.target=java.util.List\ searchUsers(java.lang.String)
+comment4.params=
+comment4.target=java.util.List\ getUsers()
+numComments=5

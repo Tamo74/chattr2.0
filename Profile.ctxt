@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Profile
+comment1.params=username\ id\ currentUser
+comment1.target=Profile(java.lang.String,\ ID,\ java.lang.String)
+comment10.params=args
+comment10.target=void\ main(java.lang.String[])
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=text\ count\ currentUser
+comment3.target=javax.swing.JLabel\ createLinkLabel(java.lang.String,\ int,\ java.lang.String)
+comment4.params=evt
+comment4.target=void\ mouseClicked(java.awt.event.MouseEvent)
+comment5.params=users\ title\ currentUser
+comment5.target=void\ showUserList(java.util.Set,\ java.lang.String,\ java.lang.String)
+comment6.params=username
+comment6.target=void\ loadPosts(java.lang.String)
+comment7.params=currentUser
+comment7.target=void\ updateFollowButton(java.lang.String)
+comment8.params=currentUser
+comment8.target=void\ toggleFollow(java.lang.String)
+comment9.params=currentUser
+comment9.target=void\ setupNavbar(java.lang.String)
+numComments=11

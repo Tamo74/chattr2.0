@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=UserSearchApp
+comment1.params=currentUser
+comment1.target=UserSearchApp(java.lang.String)
+comment2.params=e
+comment2.target=void\ keyReleased(java.awt.event.KeyEvent)
+comment3.params=
+comment3.target=void\ loadUsersFromFile()
+comment4.params=query
+comment4.target=void\ filterUsers(java.lang.String)
+comment5.params=selectedUser
+comment5.target=void\ showFollowDialog(java.lang.String)
+numComments=6

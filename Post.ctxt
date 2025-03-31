@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Post
+comment1.params=username\ content
+comment1.target=Post(java.lang.String,\ java.lang.String)
+comment10.params=
+comment10.target=java.lang.String\ toFileString()
+comment11.params=line
+comment11.target=Post\ fromFileString(java.lang.String)
+comment2.params=username\ content\ timestamp
+comment2.target=Post(java.lang.String,\ java.lang.String,\ java.util.Date)
+comment3.params=
+comment3.target=java.lang.String\ getUsername()
+comment4.params=
+comment4.target=java.lang.String\ getContent()
+comment5.params=
+comment5.target=java.util.Date\ getTimestamp()
+comment6.params=user
+comment6.target=void\ likePost(User)
+comment7.params=
+comment7.target=int\ getLikeCount()
+comment8.params=user\ message
+comment8.target=void\ addComment(User,\ java.lang.String)
+comment9.params=
+comment9.target=java.util.List\ getComments()
+numComments=12

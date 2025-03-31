@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=postManage
+comment1.params=username
+comment1.target=postManage(java.lang.String)
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=
+comment3.target=void\ displayPosts()
+comment4.params=p
+comment4.target=void\ savePost(Post)
+comment5.params=
+comment5.target=void\ loadPosts()
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+numComments=7
